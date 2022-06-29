@@ -9,17 +9,20 @@ export default function BuyerAdder() {
   const setBuyerList = useSetRecoilState(buyerListState);
   const firstFormInput = useRef(null);
 
-  const addItem = () => {
-    setBuyerList((oldBuyerList) => [
-      ...oldBuyerList,
-      {
-        id: uuidv4(),
-        name: inputValue,
-        value: Number(value),
-      },
-    ]);
-    setInputValue("");
-  };
+  const addItem = useCallback(
+    (name: string, value: number) => {
+      setBuyerList((oldBuyerList) => [
+        ...oldBuyerList,
+        {
+          id: uuidv4(),
+          name,
+          value,
+        },
+      ]);
+      setInputValue("");
+    },
+    [setBuyerList]
+  );
 
   const onChange = (e: any) => {
     setInputValue(e.target.value);
@@ -28,13 +31,17 @@ export default function BuyerAdder() {
   const onSubmit = useCallback(
     (e: any) => {
       e.preventDefault();
-      addItem();
+
+      const parsedValue = Number(String(value).replace(/,/g, "."));
+      if (Number.isNaN(parsedValue)) return;
+
+      addItem(inputValue, parsedValue);
       setInputValue("");
       setValue("");
       // @ts-ignore
       firstFormInput?.current?.focus();
     },
-    [addItem]
+    [addItem, value, inputValue]
   );
 
   return (
