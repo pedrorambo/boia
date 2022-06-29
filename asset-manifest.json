@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/boia/static/js/main.7b155e36.js",
+    "main.js": "/boia/static/js/main.fb4de81b.js",
     "index.html": "/boia/index.html",
-    "main.7b155e36.js.map": "/boia/static/js/main.7b155e36.js.map"
+    "main.fb4de81b.js.map": "/boia/static/js/main.fb4de81b.js.map"
   },
   "entrypoints": [
-    "static/js/main.7b155e36.js"
+    "static/js/main.fb4de81b.js"
   ]
 }
