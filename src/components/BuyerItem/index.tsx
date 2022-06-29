@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { useSetRecoilState, useRecoilState } from "recoil";
 import { buyerListState } from "../Buyers";
 import { v4 as uuidv4 } from "uuid";
+import formatValue from "../../utils/formatValue";
 
 export default function BuyerItem({ item }: any) {
   const [buyerList, setBuyerList] = useRecoilState(buyerListState);
@@ -20,7 +21,7 @@ export default function BuyerItem({ item }: any) {
             <p className="mb-0">{item.name}</p>
           </div>
           <div className="col-3">
-            <p className="mb-0">{item.value}</p>
+            <p className="mb-0">{formatValue(item.value)}</p>
           </div>
           <div className="col-2">
             <button

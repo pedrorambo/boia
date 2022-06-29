@@ -1,5 +1,6 @@
 import React from "react";
 import { atom, useRecoilValue, selector } from "recoil";
+import formatValue from "../../utils/formatValue";
 import BuyerAdder from "../BuyerAdder";
 import BuyerItem from "../BuyerItem";
 import Freight from "../Freight";
@@ -73,7 +74,9 @@ export default function Buyers() {
                   <div className="col-7"></div>
                   <div className="col-3">
                     <p className="mb-0">
-                      {result.reduce((acc, item) => acc + item.value, 0)}
+                      {formatValue(
+                        result.reduce((acc, item) => acc + item.value, 0)
+                      )}
                     </p>
                   </div>
                 </div>
