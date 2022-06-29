@@ -66,6 +66,19 @@ export default function Buyers() {
             {result.map((result) => (
               <ResultItem key={result.id} item={result} />
             ))}
+
+            <div className="card mb-1 border-0">
+              <div className="card-body">
+                <div className="row">
+                  <div className="col-7"></div>
+                  <div className="col-3">
+                    <p className="mb-0">
+                      {result.reduce((acc, item) => acc + item.value, 0)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
